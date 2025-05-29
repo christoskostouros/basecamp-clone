@@ -182,7 +182,8 @@ export async function POST(request: NextRequest) {
       message: 'Database schema migration completed successfully! 🎉',
       tablesCreated: tables.map(t => t.table_name),
       recordCounts: stats,
-      nextStep: 'Ready for seeding! Use /api/seed endpoint.'
+      nextStep: 'Ready for seeding! Use /api/seed endpoint.',
+      timestamp: new Date().toISOString()
     })
 
   } catch (error) {
@@ -216,14 +217,16 @@ export async function GET() {
     }
 
     return NextResponse.json({
-      message: 'Database Status Check',
+      message: 'Database Migration Status Check ✅',
       tablesFound: tables.map(t => t.table_name),
       recordCounts: stats,
       instructions: {
         migrate: 'POST with {"authorization": "migrate-db-2024"} to create schema',
         reset: 'POST with {"authorization": "migrate-db-2024", "reset": true} to reset and recreate',
         seed: 'Use /api/seed endpoint after migration'
-      }
+      },
+      timestamp: new Date().toISOString(),
+      endpoint: 'https://basecamp-clone-gold.vercel.app/api/migrate'
     })
   } catch (error) {
     return NextResponse.json({
