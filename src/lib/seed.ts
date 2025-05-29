@@ -11,7 +11,7 @@ import {
 } from './db'
 
 export async function seedDatabase() {
-  console.log('🌱 Starting database seeding...')
+  console.log('🌱 Starting database seeding... VERSION 2.0')
 
   try {
     // Clear existing data
