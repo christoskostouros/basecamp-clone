@@ -18,9 +18,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+
+  if (!publishableKey) {
+    console.warn('Missing NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY')
+  }
+
   return (
     <ClerkProvider
-      publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY || ''}
+      publishableKey={publishableKey || ''}
       signInForceRedirectUrl="/dashboard"
       signUpForceRedirectUrl="/dashboard"
     >
