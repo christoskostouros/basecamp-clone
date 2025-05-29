@@ -1,50 +1,48 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { seedDatabase } from '@/lib/seed'
-import { minimalSeedDatabase } from '@/lib/minimal-seed'
+// Instructions: Create a simple API endpoint for database seeding that just creates an organization first to test
 
-export async function POST(req: NextRequest) {
+import { NextRequest, NextResponse } from 'next/server'
+import { db } from '@/lib/db'
+import { users, organizations, organizationMembers, projects, projectMembers, tasks, comments, notifications } from '@/lib/db'
+
+export async function POST(request: NextRequest) {
   try {
-    // Simple security check - you might want to add proper authentication
-    const { authorization } = await req.json().catch(() => ({}))
-    
-    if (authorization !== 'seed-db-2024') {
-      return NextResponse.json(
-        { error: 'Unauthorized' },
-        { status: 401 }
-      )
+    const body = await request.json()
+
+    // Simple authorization check
+    if (body.authorization !== 'seed-db-2024') {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    console.log('🌱 Starting database seeding via API...')
-    // Try minimal seeding first to debug the issue
-    await minimalSeedDatabase()
-    
+    // Clear existing data (optional)
+    console.log('Starting database seed...')
+
+    // Seed Organizations first
+    const sampleOrg = {
+      id: 'org_sample_1',
+      name: 'TechCompany Ελλάδας',
+      slug: 'techcompany-elladas',
+      publicMetadata: '{}',
+      privateMetadata: '{}'
+    }
+
+    await db.insert(organizations).values(sampleOrg).onConflictDoNothing()
+    console.log('Organization seeded')
+
+    // For now, just return success to test the endpoint
     return NextResponse.json({
       success: true,
-      message: 'Database seeded successfully!'
+      message: 'Database seeding started - organization created!'
     })
+
   } catch (error) {
-    console.error('❌ Error seeding database:', error)
-    
-    // More detailed error logging
-    let errorDetails = 'Unknown error'
-    if (error instanceof Error) {
-      errorDetails = error.message
-      console.error('Error stack:', error.stack)
-    }
-    
-    return NextResponse.json(
-      { 
-        error: 'Failed to seed database',
-        details: errorDetails,
-        timestamp: new Date().toISOString()
-      },
-      { status: 500 }
-    )
+    console.error('Seeding error:', error)
+    return NextResponse.json({
+      error: 'Failed to seed database',
+      details: error instanceof Error ? error.message : 'Unknown error'
+    }, { status: 500 })
   }
 }
 
 export async function GET() {
-  return NextResponse.json({
-    message: 'Database seeding endpoint. Use POST with authorization to seed the database.'
-  })
+  return NextResponse.json({ message: 'Use POST method to seed database' })
 }
