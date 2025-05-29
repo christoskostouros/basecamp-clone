@@ -34,7 +34,6 @@ export async function seedDatabase() {
         firstName: 'Μαρία',
         lastName: 'Παπαδοπούλου',
         username: 'maria_p',
-        role: 'admin' as const,
         profileImageUrl: 'https://images.unsplash.com/photo-1494790108755-2616b612b606?w=100&h=100&fit=crop&crop=face'
       },
       {
@@ -43,7 +42,6 @@ export async function seedDatabase() {
         firstName: 'Γιάννης',
         lastName: 'Κωστόπουλος',
         username: 'giannis_k',
-        role: 'manager' as const,
         profileImageUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face'
       },
       {
@@ -52,7 +50,6 @@ export async function seedDatabase() {
         firstName: 'Έλενα',
         lastName: 'Δημητρίου',
         username: 'elena_d',
-        role: 'member' as const,
         profileImageUrl: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face'
       },
       {
@@ -61,7 +58,6 @@ export async function seedDatabase() {
         firstName: 'Νίκος',
         lastName: 'Σταύρος',
         username: 'nikos_s',
-        role: 'member' as const,
         profileImageUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face'
       },
       {
@@ -70,7 +66,6 @@ export async function seedDatabase() {
         firstName: 'Σοφία',
         lastName: 'Γεωργίου',
         username: 'sofia_g',
-        role: 'member' as const,
         profileImageUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=face'
       }
     ]
@@ -109,32 +104,27 @@ export async function seedDatabase() {
       {
         id: 'orgmem_1',
         organizationId: 'org_techcompany',
-        userId: 'user_maria',
-        role: 'owner' as const
+        userId: 'user_maria'
       },
       {
         id: 'orgmem_2',
         organizationId: 'org_techcompany',
-        userId: 'user_giannis',
-        role: 'admin' as const
+        userId: 'user_giannis'
       },
       {
         id: 'orgmem_3',
         organizationId: 'org_techcompany',
-        userId: 'user_elena',
-        role: 'member' as const
+        userId: 'user_elena'
       },
       {
         id: 'orgmem_4',
         organizationId: 'org_techcompany',
-        userId: 'user_nikos',
-        role: 'member' as const
+        userId: 'user_nikos'
       },
       {
         id: 'orgmem_5',
         organizationId: 'org_techcompany',
-        userId: 'user_sofia',
-        role: 'member' as const
+        userId: 'user_sofia'
       }
     ]
 
@@ -154,29 +144,25 @@ export async function seedDatabase() {
         name: 'Ανάπτυξη E-Shop',
         description: 'Δημιουργία σύγχρονου ηλεκτρονικού καταστήματος με React και Node.js',
         organizationId: 'org_techcompany',
-        createdBy: 'user_maria',
-        status: 'active' as const
+        createdBy: 'user_maria'
       },
       {
         name: 'Mobile App για Εστιατόρια',
         description: 'Εφαρμογή παραγγελιών φαγητού για Android και iOS',
         organizationId: 'org_techcompany',
-        createdBy: 'user_giannis',
-        status: 'active' as const
+        createdBy: 'user_giannis'
       },
       {
         name: 'Σύστημα Διαχείρισης Πελατών (CRM)',
         description: 'Ολοκληρωμένο σύστημα για την διαχείριση πελατών και πωλήσεων',
         organizationId: 'org_techcompany',
-        createdBy: 'user_maria',
-        status: 'active' as const
+        createdBy: 'user_maria'
       },
       {
         name: 'Ανανέωση Εταιρικού Website',
         description: 'Επανασχεδιασμός και ανάπτυξη του εταιρικού website',
         organizationId: 'org_techcompany',
-        createdBy: 'user_giannis',
-        status: 'completed' as const
+        createdBy: 'user_giannis'
       }
     ]
 
@@ -195,53 +181,43 @@ export async function seedDatabase() {
     const projectMembers1 = [
       {
         projectId: insertedProjects[0].id,
-        userId: 'user_maria',
-        role: 'admin' as const
+        userId: 'user_maria'
       },
       {
         projectId: insertedProjects[0].id,
-        userId: 'user_elena',
-        role: 'member' as const
+        userId: 'user_elena'
       },
       {
         projectId: insertedProjects[0].id,
-        userId: 'user_nikos',
-        role: 'member' as const
+        userId: 'user_nikos'
       },
       {
         projectId: insertedProjects[1].id,
-        userId: 'user_giannis',
-        role: 'admin' as const
+        userId: 'user_giannis'
       },
       {
         projectId: insertedProjects[1].id,
-        userId: 'user_sofia',
-        role: 'member' as const
+        userId: 'user_sofia'
       },
       {
         projectId: insertedProjects[1].id,
-        userId: 'user_elena',
-        role: 'member' as const
+        userId: 'user_elena'
       },
       {
         projectId: insertedProjects[2].id,
-        userId: 'user_maria',
-        role: 'admin' as const
+        userId: 'user_maria'
       },
       {
         projectId: insertedProjects[2].id,
-        userId: 'user_nikos',
-        role: 'member' as const
+        userId: 'user_nikos'
       },
       {
         projectId: insertedProjects[3].id,
-        userId: 'user_giannis',
-        role: 'admin' as const
+        userId: 'user_giannis'
       },
       {
         projectId: insertedProjects[3].id,
-        userId: 'user_sofia',
-        role: 'member' as const
+        userId: 'user_sofia'
       }
     ]
 
@@ -263,8 +239,6 @@ export async function seedDatabase() {
         description: 'Δημιουργία wireframes και mockups για την κεντρική σελίδα του e-shop',
         projectId: insertedProjects[0].id,
         assignedTo: 'user_elena',
-        status: 'completed' as const,
-        priority: 'high' as const,
         createdBy: 'user_maria'
       },
       {
@@ -272,8 +246,6 @@ export async function seedDatabase() {
         description: 'Υλοποίηση login/register με JWT tokens',
         projectId: insertedProjects[0].id,
         assignedTo: 'user_nikos',
-        status: 'in_progress' as const,
-        priority: 'high' as const,
         createdBy: 'user_maria'
       },
       {
@@ -281,8 +253,6 @@ export async function seedDatabase() {
         description: 'Σχεδιασμός και υλοποίηση schema για τα προϊόντα',
         projectId: insertedProjects[0].id,
         assignedTo: 'user_elena',
-        status: 'todo' as const,
-        priority: 'medium' as const,
         createdBy: 'user_maria'
       },
       {
@@ -290,8 +260,6 @@ export async function seedDatabase() {
         description: 'Frontend και backend logic για το καλάθι',
         projectId: insertedProjects[0].id,
         assignedTo: 'user_nikos',
-        status: 'todo' as const,
-        priority: 'medium' as const,
         createdBy: 'user_maria'
       },
       
@@ -301,8 +269,6 @@ export async function seedDatabase() {
         description: 'Μελέτη υπαρχόντων εφαρμογών και αναγκών αγοράς',
         projectId: insertedProjects[1].id,
         assignedTo: 'user_sofia',
-        status: 'completed' as const,
-        priority: 'high' as const,
         createdBy: 'user_giannis'
       },
       {
@@ -310,8 +276,6 @@ export async function seedDatabase() {
         description: 'Βασική δομή της εφαρμογής με navigation',
         projectId: insertedProjects[1].id,
         assignedTo: 'user_elena',
-        status: 'in_progress' as const,
-        priority: 'high' as const,
         createdBy: 'user_giannis'
       },
       {
@@ -319,8 +283,6 @@ export async function seedDatabase() {
         description: 'Προσθήκη Stripe για πληρωμές',
         projectId: insertedProjects[1].id,
         assignedTo: 'user_sofia',
-        status: 'todo' as const,
-        priority: 'medium' as const,
         createdBy: 'user_giannis'
       },
       
@@ -330,8 +292,6 @@ export async function seedDatabase() {
         description: 'Καθορισμός τεχνολογιών και δομής του συστήματος',
         projectId: insertedProjects[2].id,
         assignedTo: 'user_nikos',
-        status: 'review' as const,
-        priority: 'urgent' as const,
         createdBy: 'user_maria'
       },
       {
@@ -339,8 +299,6 @@ export async function seedDatabase() {
         description: 'Κεντρική σελίδα με στατιστικά και πληροφορίες',
         projectId: insertedProjects[2].id,
         assignedTo: 'user_nikos',
-        status: 'todo' as const,
-        priority: 'high' as const,
         createdBy: 'user_maria'
       }
     ]
@@ -404,19 +362,19 @@ export async function seedDatabase() {
       },
       {
         userId: 'user_elena',
-        type: 'comment_added' as const,
+        type: 'task_assigned' as const,
         title: 'Νέο σχόλιο',
         message: 'Η Μαρία σχολίασε στην εργασία "Σχεδιασμός UI/UX για την αρχική σελίδα"'
       },
       {
         userId: 'user_maria',
-        type: 'task_completed' as const,
+        type: 'task_assigned' as const,
         title: 'Εργασία ολοκληρώθηκε',
         message: 'Η εργασία "Ερευνα αγοράς και ανάλυση ανταγωνισμού" ολοκληρώθηκε'
       },
       {
         userId: 'user_giannis',
-        type: 'project_update' as const,
+        type: 'task_assigned' as const,
         title: 'Ενημέρωση έργου',
         message: 'Το έργο "Mobile App για Εστιατόρια" ενημερώθηκε'
       }
