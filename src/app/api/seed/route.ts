@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { seedDatabase } from '@/lib/seed'
+import { minimalSeedDatabase } from '@/lib/minimal-seed'
 
 export async function POST(req: NextRequest) {
   try {
@@ -14,7 +15,8 @@ export async function POST(req: NextRequest) {
     }
 
     console.log('🌱 Starting database seeding via API...')
-    await seedDatabase()
+    // Try minimal seeding first to debug the issue
+    await minimalSeedDatabase()
     
     return NextResponse.json({
       success: true,
