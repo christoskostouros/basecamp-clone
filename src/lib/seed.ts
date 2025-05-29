@@ -11,7 +11,11 @@ import {
 } from './db'
 
 export async function seedDatabase() {
+<<<<<<< HEAD
   console.log('🌱 Starting database seeding... VERSION 2.0')
+=======
+  console.log('🌱 Starting database seeding...')
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
 
   try {
     // Clear existing data
@@ -34,6 +38,10 @@ export async function seedDatabase() {
         firstName: 'Μαρία',
         lastName: 'Παπαδοπούλου',
         username: 'maria_p',
+<<<<<<< HEAD
+=======
+        role: 'admin' as const,
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
         profileImageUrl: 'https://images.unsplash.com/photo-1494790108755-2616b612b606?w=100&h=100&fit=crop&crop=face'
       },
       {
@@ -42,6 +50,10 @@ export async function seedDatabase() {
         firstName: 'Γιάννης',
         lastName: 'Κωστόπουλος',
         username: 'giannis_k',
+<<<<<<< HEAD
+=======
+        role: 'manager' as const,
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
         profileImageUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face'
       },
       {
@@ -50,6 +62,10 @@ export async function seedDatabase() {
         firstName: 'Έλενα',
         lastName: 'Δημητρίου',
         username: 'elena_d',
+<<<<<<< HEAD
+=======
+        role: 'member' as const,
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
         profileImageUrl: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face'
       },
       {
@@ -58,6 +74,10 @@ export async function seedDatabase() {
         firstName: 'Νίκος',
         lastName: 'Σταύρος',
         username: 'nikos_s',
+<<<<<<< HEAD
+=======
+        role: 'member' as const,
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
         profileImageUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face'
       },
       {
@@ -66,10 +86,15 @@ export async function seedDatabase() {
         firstName: 'Σοφία',
         lastName: 'Γεωργίου',
         username: 'sofia_g',
+<<<<<<< HEAD
+=======
+        role: 'member' as const,
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
         profileImageUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=face'
       }
     ]
 
+<<<<<<< HEAD
     try {
       console.log('Attempting to insert users...')
       await db.insert(users).values(sampleUsers)
@@ -79,6 +104,9 @@ export async function seedDatabase() {
       console.error('Sample user data:', JSON.stringify(sampleUsers[0], null, 2))
       throw new Error(`Failed query: Insert into 'users' - ${error instanceof Error ? error.message : 'Unknown error'}`)
     }
+=======
+    await db.insert(users).values(sampleUsers)
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
 
     // Create organization
     console.log('🏢 Creating organization...')
@@ -89,6 +117,7 @@ export async function seedDatabase() {
       profileImageUrl: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=200&fit=crop'
     }
 
+<<<<<<< HEAD
     try {
       console.log('Attempting to insert organization...')
       await db.insert(organizations).values(sampleOrg)
@@ -97,6 +126,9 @@ export async function seedDatabase() {
       console.error('❌ Error inserting organization:', error)
       throw new Error(`Failed query: Insert into 'organizations' - ${error instanceof Error ? error.message : 'Unknown error'}`)
     }
+=======
+    await db.insert(organizations).values(sampleOrg)
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
 
     // Create organization members
     console.log('👤 Adding organization members...')
@@ -104,26 +136,47 @@ export async function seedDatabase() {
       {
         id: 'orgmem_1',
         organizationId: 'org_techcompany',
+<<<<<<< HEAD
         userId: 'user_maria'
+=======
+        userId: 'user_maria',
+        role: 'owner' as const
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
       },
       {
         id: 'orgmem_2',
         organizationId: 'org_techcompany',
+<<<<<<< HEAD
         userId: 'user_giannis'
+=======
+        userId: 'user_giannis',
+        role: 'admin' as const
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
       },
       {
         id: 'orgmem_3',
         organizationId: 'org_techcompany',
+<<<<<<< HEAD
         userId: 'user_elena'
+=======
+        userId: 'user_elena',
+        role: 'member' as const
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
       },
       {
         id: 'orgmem_4',
         organizationId: 'org_techcompany',
+<<<<<<< HEAD
         userId: 'user_nikos'
+=======
+        userId: 'user_nikos',
+        role: 'member' as const
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
       },
       {
         id: 'orgmem_5',
         organizationId: 'org_techcompany',
+<<<<<<< HEAD
         userId: 'user_sofia'
       }
     ]
@@ -136,6 +189,14 @@ export async function seedDatabase() {
       console.error('❌ Error inserting organization members:', error)
       throw new Error(`Failed query: Insert into 'organization_members' - ${error instanceof Error ? error.message : 'Unknown error'}`)
     }
+=======
+        userId: 'user_sofia',
+        role: 'member' as const
+      }
+    ]
+
+    await db.insert(organizationMembers).values(orgMembers)
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
 
     // Create projects
     console.log('📋 Creating projects...')
@@ -144,24 +205,40 @@ export async function seedDatabase() {
         name: 'Ανάπτυξη E-Shop',
         description: 'Δημιουργία σύγχρονου ηλεκτρονικού καταστήματος με React και Node.js',
         organizationId: 'org_techcompany',
+<<<<<<< HEAD
         createdBy: 'user_maria'
+=======
+        createdBy: 'user_maria',
+        status: 'active' as const
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
       },
       {
         name: 'Mobile App για Εστιατόρια',
         description: 'Εφαρμογή παραγγελιών φαγητού για Android και iOS',
         organizationId: 'org_techcompany',
+<<<<<<< HEAD
         createdBy: 'user_giannis'
+=======
+        createdBy: 'user_giannis',
+        status: 'active' as const
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
       },
       {
         name: 'Σύστημα Διαχείρισης Πελατών (CRM)',
         description: 'Ολοκληρωμένο σύστημα για την διαχείριση πελατών και πωλήσεων',
         organizationId: 'org_techcompany',
+<<<<<<< HEAD
         createdBy: 'user_maria'
+=======
+        createdBy: 'user_maria',
+        status: 'active' as const
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
       },
       {
         name: 'Ανανέωση Εταιρικού Website',
         description: 'Επανασχεδιασμός και ανάπτυξη του εταιρικού website',
         organizationId: 'org_techcompany',
+<<<<<<< HEAD
         createdBy: 'user_giannis'
       }
     ]
@@ -175,12 +252,21 @@ export async function seedDatabase() {
       console.error('❌ Error inserting projects:', error)
       throw new Error(`Failed query: Insert into 'projects' - ${error instanceof Error ? error.message : 'Unknown error'}`)
     }
+=======
+        createdBy: 'user_giannis',
+        status: 'completed' as const
+      }
+    ]
+
+    const insertedProjects = await db.insert(projects).values(sampleProjects).returning()
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
 
     // Create project members
     console.log('👥 Adding project members...')
     const projectMembers1 = [
       {
         projectId: insertedProjects[0].id,
+<<<<<<< HEAD
         userId: 'user_maria'
       },
       {
@@ -229,6 +315,59 @@ export async function seedDatabase() {
       console.error('❌ Error inserting project members:', error)
       throw new Error(`Failed query: Insert into 'project_members' - ${error instanceof Error ? error.message : 'Unknown error'}`)
     }
+=======
+        userId: 'user_maria',
+        role: 'admin' as const
+      },
+      {
+        projectId: insertedProjects[0].id,
+        userId: 'user_elena',
+        role: 'member' as const
+      },
+      {
+        projectId: insertedProjects[0].id,
+        userId: 'user_nikos',
+        role: 'member' as const
+      },
+      {
+        projectId: insertedProjects[1].id,
+        userId: 'user_giannis',
+        role: 'admin' as const
+      },
+      {
+        projectId: insertedProjects[1].id,
+        userId: 'user_sofia',
+        role: 'member' as const
+      },
+      {
+        projectId: insertedProjects[1].id,
+        userId: 'user_elena',
+        role: 'member' as const
+      },
+      {
+        projectId: insertedProjects[2].id,
+        userId: 'user_maria',
+        role: 'admin' as const
+      },
+      {
+        projectId: insertedProjects[2].id,
+        userId: 'user_nikos',
+        role: 'member' as const
+      },
+      {
+        projectId: insertedProjects[3].id,
+        userId: 'user_giannis',
+        role: 'admin' as const
+      },
+      {
+        projectId: insertedProjects[3].id,
+        userId: 'user_sofia',
+        role: 'member' as const
+      }
+    ]
+
+    await db.insert(projectMembers).values(projectMembers1)
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
 
     // Create tasks
     console.log('✅ Creating tasks...')
@@ -239,6 +378,11 @@ export async function seedDatabase() {
         description: 'Δημιουργία wireframes και mockups για την κεντρική σελίδα του e-shop',
         projectId: insertedProjects[0].id,
         assignedTo: 'user_elena',
+<<<<<<< HEAD
+=======
+        status: 'completed' as const,
+        priority: 'high' as const,
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
         createdBy: 'user_maria'
       },
       {
@@ -246,6 +390,11 @@ export async function seedDatabase() {
         description: 'Υλοποίηση login/register με JWT tokens',
         projectId: insertedProjects[0].id,
         assignedTo: 'user_nikos',
+<<<<<<< HEAD
+=======
+        status: 'in_progress' as const,
+        priority: 'high' as const,
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
         createdBy: 'user_maria'
       },
       {
@@ -253,6 +402,11 @@ export async function seedDatabase() {
         description: 'Σχεδιασμός και υλοποίηση schema για τα προϊόντα',
         projectId: insertedProjects[0].id,
         assignedTo: 'user_elena',
+<<<<<<< HEAD
+=======
+        status: 'todo' as const,
+        priority: 'medium' as const,
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
         createdBy: 'user_maria'
       },
       {
@@ -260,6 +414,11 @@ export async function seedDatabase() {
         description: 'Frontend και backend logic για το καλάθι',
         projectId: insertedProjects[0].id,
         assignedTo: 'user_nikos',
+<<<<<<< HEAD
+=======
+        status: 'todo' as const,
+        priority: 'medium' as const,
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
         createdBy: 'user_maria'
       },
       
@@ -269,6 +428,11 @@ export async function seedDatabase() {
         description: 'Μελέτη υπαρχόντων εφαρμογών και αναγκών αγοράς',
         projectId: insertedProjects[1].id,
         assignedTo: 'user_sofia',
+<<<<<<< HEAD
+=======
+        status: 'completed' as const,
+        priority: 'high' as const,
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
         createdBy: 'user_giannis'
       },
       {
@@ -276,6 +440,11 @@ export async function seedDatabase() {
         description: 'Βασική δομή της εφαρμογής με navigation',
         projectId: insertedProjects[1].id,
         assignedTo: 'user_elena',
+<<<<<<< HEAD
+=======
+        status: 'in_progress' as const,
+        priority: 'high' as const,
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
         createdBy: 'user_giannis'
       },
       {
@@ -283,6 +452,11 @@ export async function seedDatabase() {
         description: 'Προσθήκη Stripe για πληρωμές',
         projectId: insertedProjects[1].id,
         assignedTo: 'user_sofia',
+<<<<<<< HEAD
+=======
+        status: 'todo' as const,
+        priority: 'medium' as const,
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
         createdBy: 'user_giannis'
       },
       
@@ -292,6 +466,11 @@ export async function seedDatabase() {
         description: 'Καθορισμός τεχνολογιών και δομής του συστήματος',
         projectId: insertedProjects[2].id,
         assignedTo: 'user_nikos',
+<<<<<<< HEAD
+=======
+        status: 'review' as const,
+        priority: 'urgent' as const,
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
         createdBy: 'user_maria'
       },
       {
@@ -299,10 +478,16 @@ export async function seedDatabase() {
         description: 'Κεντρική σελίδα με στατιστικά και πληροφορίες',
         projectId: insertedProjects[2].id,
         assignedTo: 'user_nikos',
+<<<<<<< HEAD
+=======
+        status: 'todo' as const,
+        priority: 'high' as const,
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
         createdBy: 'user_maria'
       }
     ]
 
+<<<<<<< HEAD
     let insertedTasks
     try {
       console.log('Attempting to insert tasks...')
@@ -312,6 +497,9 @@ export async function seedDatabase() {
       console.error('❌ Error inserting tasks:', error)
       throw new Error(`Failed query: Insert into 'tasks' - ${error instanceof Error ? error.message : 'Unknown error'}`)
     }
+=======
+    const insertedTasks = await db.insert(tasks).values(sampleTasks).returning()
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
 
     // Create some comments
     console.log('💬 Creating comments...')
@@ -342,6 +530,7 @@ export async function seedDatabase() {
       }
     ]
 
+<<<<<<< HEAD
     try {
       console.log('Attempting to insert comments...')
       await db.insert(comments).values(sampleComments)
@@ -350,6 +539,9 @@ export async function seedDatabase() {
       console.error('❌ Error inserting comments:', error)
       throw new Error(`Failed query: Insert into 'comments' - ${error instanceof Error ? error.message : 'Unknown error'}`)
     }
+=======
+    await db.insert(comments).values(sampleComments)
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
 
     // Create some notifications
     console.log('🔔 Creating notifications...')
@@ -362,24 +554,37 @@ export async function seedDatabase() {
       },
       {
         userId: 'user_elena',
+<<<<<<< HEAD
         type: 'task_assigned' as const,
+=======
+        type: 'comment_added' as const,
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
         title: 'Νέο σχόλιο',
         message: 'Η Μαρία σχολίασε στην εργασία "Σχεδιασμός UI/UX για την αρχική σελίδα"'
       },
       {
         userId: 'user_maria',
+<<<<<<< HEAD
         type: 'task_assigned' as const,
+=======
+        type: 'task_completed' as const,
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
         title: 'Εργασία ολοκληρώθηκε',
         message: 'Η εργασία "Ερευνα αγοράς και ανάλυση ανταγωνισμού" ολοκληρώθηκε'
       },
       {
         userId: 'user_giannis',
+<<<<<<< HEAD
         type: 'task_assigned' as const,
+=======
+        type: 'project_update' as const,
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
         title: 'Ενημέρωση έργου',
         message: 'Το έργο "Mobile App για Εστιατόρια" ενημερώθηκε'
       }
     ]
 
+<<<<<<< HEAD
     try {
       console.log('Attempting to insert notifications...')
       await db.insert(notifications).values(sampleNotifications)
@@ -388,6 +593,9 @@ export async function seedDatabase() {
       console.error('❌ Error inserting notifications:', error)
       throw new Error(`Failed query: Insert into 'notifications' - ${error instanceof Error ? error.message : 'Unknown error'}`)
     }
+=======
+    await db.insert(notifications).values(sampleNotifications)
+>>>>>>> 4ab2a9381f2e953a688f1b8575360f9cea6a4eec
 
     console.log('✅ Database seeding completed successfully!')
     console.log(`📊 Created:`)
