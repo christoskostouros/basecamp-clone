@@ -1,10 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Keep server-side functionality for API routes and real-time features
+  // DO NOT use output: 'export' as it would break API routes and database functionality
+  
   // Ensure environment variables are available during build
   env: {
     NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
     CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY,
   },
+  
+  // Optimize for Netlify deployment
+  trailingSlash: false,
+  
   images: {
     unoptimized: true,
     domains: [
