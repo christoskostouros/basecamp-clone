@@ -74,7 +74,7 @@ export const projects = pgTable('projects', {
   id: uuid('id').defaultRandom().primaryKey(),
   name: varchar('name', { length: 255 }).notNull(),
   description: text('description'),
-  organizationId: uuid('organization_id').references(() => organizations.id, { onDelete: 'cascade' }).notNull(),
+  organizationId: text('organization_id').references(() => organizations.id, { onDelete: 'cascade' }).notNull(),
   createdBy: text('created_by').references(() => users.id).notNull(),
   status: projectStatusEnum('status').default('active').notNull(),
   createdAt: timestamp('created_at').defaultNow().notNull(),
